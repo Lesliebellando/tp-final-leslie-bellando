@@ -1,0 +1,287 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Veterinaria API
+meta:
+  id: wrk_7db24846592849e5ab60985afd6d207e
+  created: 1770250648003
+  modified: 1770250648003
+  description: ""
+collection:
+  - url: http://localhost:3000/api/auth/register
+    name: 1. Registro de Usuario
+    meta:
+      id: req_bee6472065754681ad0c0e6febac8547
+      created: 1770251103188
+      modified: 1770251496756
+      isPrivate: false
+      description: ""
+      sortKey: -1770251103188
+    method: POST
+    body:
+      mimeType: application/json
+      text: |2-
+        
+             {
+          "username": "VetUser",
+          "email": "vet@correo.com",
+          "password": "Password123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/auth/login
+    name: 2. Login de usuario
+    meta:
+      id: req_05efe592adf6499aa902de3f538e868c
+      created: 1770251305360
+      modified: 1770251447375
+      isPrivate: false
+      description: ""
+      sortKey: -1770251305360
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "email": "vet@correo.com",
+            "password": "Password123!"
+          }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/pets
+    name: 3. Crear mascota
+    meta:
+      id: req_fdd8d3c664bd4a8db45d2df8d82c2ec3
+      created: 1770251808279
+      modified: 1770251888932
+      isPrivate: false
+      description: ""
+      sortKey: -1770251808279
+    method: POST
+    body:
+      mimeType: application/json
+      text: "{\r     \"nombre\": \"Marlon\",\r     \"especie\":
+        \"Perro\",\r     \"raza\": \"Dachshund\",\r     \"fechaNacimiento\":
+        \"2021-08-15\",\r     \"nombreDueno\": \"Carlos
+        Rodriguez\",\r     \"telefonoDueno\": \"3796789012\"\r   }"
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNlM2Q4ODdhZTc3NWE0NWExYTlhYSIsInVzZXJuYW1lIjoiVmV0VXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMjUxMzM3LCJleHAiOjE3NzAzMzc3MzcsImlzcyI6ImN1cnNvLXV0bi1iYWNrZW5kIn0.0ZN07k_miUcuD90yPLa3tmNRXcdHELZXmgo2tRKpamM
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/pets
+    name: 4. Traer todas las mascotas
+    meta:
+      id: req_6bdc3a53378f4d19b855f89189814c27
+      created: 1770252071895
+      modified: 1770252145000
+      isPrivate: false
+      description: ""
+      sortKey: -1770252071895
+    method: GET
+    headers:
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNlM2Q4ODdhZTc3NWE0NWExYTlhYSIsInVzZXJuYW1lIjoiVmV0VXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMjUxMzM3LCJleHAiOjE3NzAzMzc3MzcsImlzcyI6ImN1cnNvLXV0bi1iYWNrZW5kIn0.0ZN07k_miUcuD90yPLa3tmNRXcdHELZXmgo2tRKpamM
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/pets/6983e62587ae775a45a1a9ad
+    name: 5. Traer mascota por ID
+    meta:
+      id: req_deff304bc7d14ffe8ef1140fde1a6560
+      created: 1770252255427
+      modified: 1770252304235
+      isPrivate: false
+      description: ""
+      sortKey: -1770252255427
+    method: GET
+    headers:
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNlM2Q4ODdhZTc3NWE0NWExYTlhYSIsInVzZXJuYW1lIjoiVmV0VXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMjUxMzM3LCJleHAiOjE3NzAzMzc3MzcsImlzcyI6ImN1cnNvLXV0bi1iYWNrZW5kIn0.0ZN07k_miUcuD90yPLa3tmNRXcdHELZXmgo2tRKpamM
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/pets/6983e62587ae775a45a1a9ad
+    name: 6. Actualizar datos de mascota
+    meta:
+      id: req_f353ec32dfa54c59889110e8d1cacd93
+      created: 1770252490752
+      modified: 1770252536082
+      isPrivate: false
+      description: ""
+      sortKey: -1770252490752
+    method: PUT
+    body:
+      mimeType: application/json
+      text: "{\r     \"nombre\": \"Toby\",\r     \"especie\":
+        \"Perro\",\r     \"raza\": \"Golden
+        Retriever\",\r     \"fechaNacimiento\":
+        \"2021-08-15\",\r     \"nombreDueno\": \"Carlos
+        Rodriguez\",\r     \"telefonoDueno\": \"3796789999\"\r   }"
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNlM2Q4ODdhZTc3NWE0NWExYTlhYSIsInVzZXJuYW1lIjoiVmV0VXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMjUxMzM3LCJleHAiOjE3NzAzMzc3MzcsImlzcyI6ImN1cnNvLXV0bi1iYWNrZW5kIn0.0ZN07k_miUcuD90yPLa3tmNRXcdHELZXmgo2tRKpamM
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/medical-records
+    name: 7. Crear registro medico
+    meta:
+      id: req_55218918125d4a7484037fa359c30fee
+      created: 1770252968359
+      modified: 1770254242165
+      isPrivate: false
+      description: ""
+      sortKey: -1770252968359
+    method: POST
+    body:
+      mimeType: application/json
+      text: "{\r     \"petId\": \"6983e62587ae775a45a1a9ad\",\r     \"descripcion\":
+        \"Paciente presenta decaimiento. Se realiza control de temperatura y
+        signos vitales.\",\r     \"fecha\": \"2026-02-04\"\r   }"
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNlM2Q4ODdhZTc3NWE0NWExYTlhYSIsInVzZXJuYW1lIjoiVmV0VXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMjUxMzM3LCJleHAiOjE3NzAzMzc3MzcsImlzcyI6ImN1cnNvLXV0bi1iYWNrZW5kIn0.0ZN07k_miUcuD90yPLa3tmNRXcdHELZXmgo2tRKpamM
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/medical-records/6983eaaf87ae775a45a1a9b5
+    name: 8. Actualizar registro medico
+    meta:
+      id: req_4b60f8463da942d2a1a167c2b637dbab
+      created: 1770253128269
+      modified: 1770254247580
+      isPrivate: false
+      description: ""
+      sortKey: -1770253128269
+    method: PUT
+    body:
+      mimeType: application/json
+      text: "{\r     \"descripcion\": \"Actualización: El paciente respondió bien al
+        tratamiento. Mejoró significativamente.\",\r     \"fecha\":
+        \"2026-02-04\"\r   }"
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNlM2Q4ODdhZTc3NWE0NWExYTlhYSIsInVzZXJuYW1lIjoiVmV0VXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMjUxMzM3LCJleHAiOjE3NzAzMzc3MzcsImlzcyI6ImN1cnNvLXV0bi1iYWNrZW5kIn0.0ZN07k_miUcuD90yPLa3tmNRXcdHELZXmgo2tRKpamM
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/medical-records/6983eaaf87ae775a45a1a9b5
+    name: 9 Traer registro medico por ID
+    meta:
+      id: req_3a0faa28a01f44408f362fe365d7c90f
+      created: 1770253821251
+      modified: 1770254257075
+      isPrivate: false
+      description: ""
+      sortKey: -1770253821251
+    method: GET
+    headers:
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNlM2Q4ODdhZTc3NWE0NWExYTlhYSIsInVzZXJuYW1lIjoiVmV0VXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMjUxMzM3LCJleHAiOjE3NzAzMzc3MzcsImlzcyI6ImN1cnNvLXV0bi1iYWNrZW5kIn0.0ZN07k_miUcuD90yPLa3tmNRXcdHELZXmgo2tRKpamM
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/medical-records/6983eaaf87ae775a45a1a9b5
+    name: 10. Eliminar registro medico
+    meta:
+      id: req_1963bda489f542b18a6a861e3001971a
+      created: 1770253938412
+      modified: 1770254263009
+      isPrivate: false
+      description: ""
+      sortKey: -1770253938412
+    method: DELETE
+    headers:
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNlM2Q4ODdhZTc3NWE0NWExYTlhYSIsInVzZXJuYW1lIjoiVmV0VXNlciIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcwMjUxMzM3LCJleHAiOjE3NzAzMzc3MzcsImlzcyI6ImN1cnNvLXV0bi1iYWNrZW5kIn0.0ZN07k_miUcuD90yPLa3tmNRXcdHELZXmgo2tRKpamM
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_3787068cbccff50f10197dfd5b4949240aa8bebc
+    created: 1770250648014
+    modified: 1770250648014
+environments:
+  name: Base Environment
+  meta:
+    id: env_3787068cbccff50f10197dfd5b4949240aa8bebc
+    created: 1770250648008
+    modified: 1770250648008
+    isPrivate: false
