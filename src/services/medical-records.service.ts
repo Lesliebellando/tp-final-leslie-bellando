@@ -51,7 +51,7 @@ await record.populate('vetId', 'username');
 
 
 
-export const updateRecord = async (id: string, data: Partial<CreateRecordDTO>, userId: string, role: string) => {
+export const updateMedicalRecord = async (id: string, data: Partial<CreateRecordDTO>, userId: string, role: string) => {
   const record = await MedicalRecord.findById(id);
   if (!record) return null;
 
@@ -62,7 +62,7 @@ export const updateRecord = async (id: string, data: Partial<CreateRecordDTO>, u
   return await MedicalRecord.findByIdAndUpdate(id, data, { new: true });
 };
 
-export const deleteRecord = async (id: string, userId: string, role: string) => {
+export const deleteMedicalRecord = async (id: string, userId: string, role: string) => {
   const record = await MedicalRecord.findById(id);
   if (!record) return null;
 

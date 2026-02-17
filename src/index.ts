@@ -6,6 +6,7 @@ import 'dotenv/config';
 import authRoutes from './routes/auth.routes';
 import petRoutes from './routes/pet.routes';
 import medicalrecordsRoutes from './routes/medical-records.routes';
+import ownerRoutes from './routes/owner.routes';
 
 import { connectDB } from './config/database';
 import { errorHandler } from './middlewares/error.middleware';
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/api/auth', authRoutes);
 app.use('/api/pets', petRoutes);         
 app.use('/api/medical-records', medicalrecordsRoutes);
+app.use('/api/owners', ownerRoutes);
 
 // Middleware de manejo de errores global (debe ser el último)
 app.use(errorHandler);

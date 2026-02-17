@@ -98,15 +98,15 @@ export const getMedicalRecordById = async (req: Request, res: Response) => {
  * @param {Response} res - Express response object.
  * @returns {Promise<Response>} JSON response with the updated record or an error message.
  */
-export const updateRecord = async (req: Request, res: Response) => {
+export const updateMedicalRecord = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
-    console.log('updateRecord', id);
+    console.log('updateMedicalRecord', id);
     
     const userId = req.user?.id || '';
     const role = req.user?.role || '';
     
-    const record = await recordService.updateRecord(id, req.body, userId, role);
+    const record = await recordService.updateMedicalRecord(id, req.body, userId, role);
 
     if (!record) {
       return res.status(404).json({ error: 'Historial no encontrado o sin permisos' });
@@ -126,15 +126,15 @@ export const updateRecord = async (req: Request, res: Response) => {
  * @param {Response} res - Express response object.
  * @returns {Promise<Response>} JSON response indicating success or an error message.
  */
-export const deleteRecord = async (req: Request, res: Response) => {
+export const deleteMedicalRecord = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
-    console.log('deleteRecord', id);
+    console.log('deleteMedicalRecord', id);
     
     const userId = req.user?.id || '';
     const role = req.user?.role || '';
 
-    const record = await recordService.deleteRecord(id, userId, role);
+    const record = await recordService.deleteMedicalRecord(id, userId, role);
 
     if (!record) {
       return res.status(404).json({ error: 'Historial no encontrado o sin permisos' });
