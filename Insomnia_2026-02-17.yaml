@@ -1,0 +1,645 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Veterinaria_Patitas_Felices
+meta:
+  id: wrk_8a70b1eb7a064407aed9e744948bb63d
+  created: 1771335297732
+  modified: 1771335297732
+  description: ""
+collection:
+  - url: "{{ _['\"base_url\":'] }}/api/auth/register"
+    name: 1. Register
+    meta:
+      id: req_5a44cdd3140145008eed4a081df1bc6b
+      created: 1771336158489
+      modified: 1771336624178
+      isPrivate: false
+      description: ""
+      sortKey: -1771336158489
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "DrCasa",
+          "email": "casa@hospital.com",
+          "password": "Password123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/auth/login"
+    name: 2. Login
+    meta:
+      id: req_3b527d29ef3d4180a6a8122339fad61c
+      created: 1771336973662
+      modified: 1771337023386
+      isPrivate: false
+      description: ""
+      sortKey: -1771336973662
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "casa@hospital.com",
+          "password": "Password123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/owners"
+    name: 3. Crear Dueño (POST)
+    meta:
+      id: req_16d793be763d47219ab4d253c187e977
+      created: 1771337462727
+      modified: 1771337852629
+      isPrivate: false
+      description: ""
+      sortKey: -1771337462727
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "nombre": "Susana Perez",
+          "telefono": "555-1010",
+          "email": "susana@mail.com",
+          "direccion": "Oscuridad 10"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      disabled: false
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/pets"
+    name: 4. Crear una Mascota (POST)
+    meta:
+      id: req_c11e056632dc45568a35e5f98bdb24fc
+      created: 1771338124568
+      modified: 1771339918040
+      isPrivate: false
+      description: ""
+      sortKey: -1771338186743.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "nombre": "Kevin",
+          "especie": "Perro",
+          "raza": "Dogo de Burdeos",
+          "fechaNacimiento": "2018-05-10",
+          "ownerId": "6994796816cb2ba16bc3b3b0"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/medical-records"
+    name: 5. Crear  Historia Clinica (POST)
+    meta:
+      id: req_30c01d3114f94f5e8c1c2bed72cb52fb
+      created: 1771338248919
+      modified: 1771338422036
+      isPrivate: false
+      description: ""
+      sortKey: -1771338248919
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "diagnostico": "Gripe canina",
+          "tratamiento": "Reposo y agua",
+          "descripcion": "El paciente presenta tos y decaimiento...",
+          "fecha": "2026-02-12",
+          "petId": "69947a0016cb2ba16bc3b3b2"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/owners/6994796816cb2ba16bc3b3b0"
+    name: 6. Actualizar Datos de Dueño
+    meta:
+      id: req_a436ca1207a84a8a8f9a36afe8d6895f
+      created: 1771338572315
+      modified: 1771338874906
+      isPrivate: false
+      description: ""
+      sortKey: -1771338572315
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "telefono": "999-999-999",
+          "direccion": "Nueva Casa 456"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/owners"
+    name: 7. Traer todos los dueños
+    meta:
+      id: req_00decdeaac9e49fc9f520d2f765fd0e6
+      created: 1771338878606
+      modified: 1771340650207
+      isPrivate: false
+      description: ""
+      sortKey: -1771338878606
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/owners/6994796816cb2ba16bc3b3b0"
+    name: 8. Ver dueño por Id
+    meta:
+      id: req_f2b4a09e659d4f31bbf82eb4eeabda64
+      created: 1771338967226
+      modified: 1771339295562
+      isPrivate: false
+      description: ""
+      sortKey: -1771338967226
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/owners/69947e873de9ef7bd1f4454f"
+    name: 9. Eliminar Dueño
+    meta:
+      id: req_ee1e9b469bc645239a067cf5bac5d62e
+      created: 1771339314608
+      modified: 1771339501131
+      isPrivate: false
+      description: ""
+      sortKey: -1771339314608
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/pets"
+    name: 10. Traer todas las mascotas
+    meta:
+      id: req_f5bf84fbe1934d7096b0b41adc711605
+      created: 1771339894217
+      modified: 1771340178533
+      isPrivate: false
+      description: ""
+      sortKey: -1771339894217
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/pets/69947a0016cb2ba16bc3b3b2"
+    name: 11. Traer Mascota por ID
+    meta:
+      id: req_f9a93b3787ee4703899b7784dfa02c16
+      created: 1771340306196
+      modified: 1771340347022
+      isPrivate: false
+      description: ""
+      sortKey: -1771340306196
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/pets/69947a0016cb2ba16bc3b3b2"
+    name: 12. Actualizar mascota
+    meta:
+      id: req_1f0c720ad1344559a4cf22f4fb62777d
+      created: 1771340362381
+      modified: 1771340459906
+      isPrivate: false
+      description: ""
+      sortKey: -1771340362381
+    method: PUT
+    body:
+      mimeType: application/json
+      text: '{ "raza": "Dogo Argentino"}'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/pets/699483b13de9ef7bd1f44562"
+    name: 13. Eliminar una Mascota
+    meta:
+      id: req_a03aa360e5fc483fa579a7ffce4b72b5
+      created: 1771340509399
+      modified: 1771340776234
+      isPrivate: false
+      description: ""
+      sortKey: -1771340509399
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/medical-records/pet/69947a0016cb2ba16bc3b3b2"
+    name: 14. Traer historia clinica de una mascota
+    meta:
+      id: req_53ebc410993f436f8f006fd3a78b7485
+      created: 1771341261251
+      modified: 1771341544897
+      isPrivate: false
+      description: ""
+      sortKey: -1771341261251
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/medical-records/699486b83de9ef7bd1f44569"
+    name: 15. Traer una consulta específica
+    meta:
+      id: req_85cceb9f9cb94b70b63ebc3d8afc48fb
+      created: 1771341577688
+      modified: 1771341686670
+      isPrivate: false
+      description: ""
+      sortKey: -1771341577688
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/medical-records/699486b83de9ef7bd1f44569"
+    name: "16. Actualizar "
+    meta:
+      id: req_ec9532fe6c2a4de5a3fdc73a86eb8f34
+      created: 1771341697790
+      modified: 1771342722817
+      isPrivate: false
+      description: ""
+      sortKey: -1771341697790
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "diagnostico": "Sin infección. Otitis curada",
+          "tratamiento": "Solo reposo, ya no necesita medicación"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/medical-records/69948aab3de9ef7bd1f4457a"
+    name: 17. Eliminar un registro medico
+    meta:
+      id: req_4bad379623cf4f75aad8d2c33293d4d7
+      created: 1771342120143
+      modified: 1771343093690
+      isPrivate: false
+      description: ""
+      sortKey: -1771342120143
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/auth/register"
+    name: 18. Crear Admin
+    meta:
+      id: req_e3fe1d0081314be59c7dd177b39d54f7
+      created: 1771343194979
+      modified: 1771355616567
+      isPrivate: false
+      description: ""
+      sortKey: -1771343194979
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "AdminSupremo",
+          "email": "admin@veterinaria.com",
+          "password": "Admin123!",
+          "role": "admin"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{{ _['\"token\":'] }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/auth/login"
+    name: 19. Login de otro veterinario
+    meta:
+      id: req_883f6786d0a94c18844d35eceb24ebbf
+      created: 1771356081141
+      modified: 1771357873301
+      isPrivate: false
+      description: ""
+      sortKey: -1771356081141
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "house@hospital.com",
+          "password": "Password123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _['\"base_url\":'] }}/api/medical-records/699486b83de9ef7bd1f44569"
+    name: "20. TEST: Modificar historia clinica que pertenece a un paciente de otro
+      veterinario. Debe dar error."
+    meta:
+      id: req_506fe2c84bf945f9a25beeca898869b3
+      created: 1771356804654
+      modified: 1771357879205
+      isPrivate: false
+      description: ""
+      sortKey: -1771356804654
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "diagnostico": "Sin infección. Otitis curada",
+          "tratamiento": "Solo reposo, ya no necesita medicación"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.3.1
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTQ3MzFmMTZjYjJiYTE2YmMzYjNhOCIsInVzZXJuYW1lIjoiRHJIb3VzZSIsInJvbGUiOiJ2ZXRlcmluYXJpbyIsImlhdCI6MTc3MTM1NjcwNCwiZXhwIjoxNzcxNDQzMTA0LCJpc3MiOiJjdXJzby11dG4tYmFja2VuZCJ9.fnBvxQvwc9i0_5G9ZfpmoGC9bgq0xzyGoXyGx9QppXU
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_aae5dfda058a923d7f8f05051c12a208759d5e01
+    created: 1771335297747
+    modified: 1771335297747
+environments:
+  name: Base Environment
+  meta:
+    id: env_aae5dfda058a923d7f8f05051c12a208759d5e01
+    created: 1771335297743
+    modified: 1771338081039
+    isPrivate: false
+  data:
+    '"base_url":': http://localhost:3000
+    '"token":': " {% response 'body', 'req_3b527d29ef3d4180a6a8122339fad61c',
+      'b64::JC50b2tlbg==::46b', 'never', 60 %}"

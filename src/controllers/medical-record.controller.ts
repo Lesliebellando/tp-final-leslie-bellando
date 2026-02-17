@@ -29,14 +29,14 @@ export const createMedicalRecord = async (req: Request, res: Response) => {
  * @param {Response} res - Express response object.
  * @returns {Promise<Response>} JSON response with an array of records or an error message.
  */
-export const getAllRecords = async (req: Request, res: Response) => {
+export const getAllMedicalRecords = async (req: Request, res: Response) => {
   try {
-    console.log('getAllRecords');
+    console.log('getAllMedicalRecords');
     
     const userId = req.user?.id || '';
     const role = req.user?.role || '';
 
-    const records = await recordService.getAllRecords(userId, role);
+    const records = await recordService.getAllMedicalRecords(userId, role);
     return res.status(200).json(records);
   } catch (error) {
     return res.status(500).json({ error: 'Error al obtener historiales' });

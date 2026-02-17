@@ -51,6 +51,7 @@ export const login = async (req: Request, res: Response) => {
 
     return res.json({ token });
   } catch (error: any) {
+    console.error('Error en Login:', error);
     if (error.message === 'Credenciales inválidas') {
       return res.status(401).json({ error: error.message });
     }

@@ -16,7 +16,7 @@ export const createMedicalRecord = async (data: CreateRecordDTO) => {
   const newRecord = new MedicalRecord(data);
   return await newRecord.save();
 };
-export const getAllRecords = async (userId: string, role: string) => {
+export const getAllMedicalRecords = async (userId: string, role: string) => {
   let query = {};
   if (role !== UserRole.ADMIN) {
     query = { vetId: userId };
